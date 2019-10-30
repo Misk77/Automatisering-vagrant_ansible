@@ -1,0 +1,7 @@
+---
+- hosts: webb
+  gather_facts: yes
+
+- hosts: webb
+  roles:
+    - webapp

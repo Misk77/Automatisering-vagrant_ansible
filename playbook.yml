@@ -1,17 +1,20 @@
 ---
 - hosts: all
   tasks:
-    - name: samla in fakta
+    - name: samla in fakta ang nätverken
       setup:
         gather_subset:
              - "network"
-
-- hosts: webb
-  roles:
-    - webbserver
+#
+#- hosts: webb
+#  roles:
+#    - webbserver
 
 - hosts: databas
 
   roles:
     - dbserver
 
+#- hosts: webb
+#  roles:
+#    - webapp

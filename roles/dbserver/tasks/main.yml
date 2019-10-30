@@ -25,7 +25,7 @@
   mysql_user:
     name: "{{ webapp_db_user }}" 
     host: "{{ webapp_db_connection_for_webappusers }}"
-    password: "{{ webapp_db_password }}"
+    password: "{{ vault_webapp_db_password }}"
     priv: "*.*:ALL"
     state: present
 

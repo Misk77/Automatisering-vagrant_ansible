@@ -1,0 +1,4 @@
+---
+dbconnect: "{{ hostvars[groups['databas'][0]]['ansible_eth1']['ipv4']['address'] }}"
+dbuser: "webappuser"
+dppass: "secret!"

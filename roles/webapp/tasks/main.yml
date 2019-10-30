@@ -1,0 +1,25 @@
+---
+
+- git:
+   repo: "https://github.com/initab/demoapp"
+   dest: /var/www/demo
+
+- name: install req package for EPEL
+  yum: 
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "@Development tools"
+    - "perl"
+    - "perl-App*"
+    - "perl-DBD*"
+    - "perl-Template*"
+    - "perl-YAML*"
+    - "perl-Capture-Tiny*"
+
+- name: install Dancer, Perl module
+  cpanm:
+    name: Dancer
+
+
+
