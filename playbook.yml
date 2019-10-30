@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: samla in fakta
+      setup:
+        gather_subset:
+             - "network"
+
+- hosts: webb
+  roles:
+    - webbserver
+
+- hosts: databas
+
+  roles:
+    - dbserver
+

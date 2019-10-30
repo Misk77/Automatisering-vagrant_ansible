@@ -1,0 +1,41 @@
+- name: inst. Apache-paketet samt säkerhets moduler
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop:
+   - httpd
+   - mod_security
+   - mod_ssl
+   - mod_wsgi
+   - mod_ldap
+   - mod_auth_kerb
+   - mod_auth_gssapi
+  
+
+- name: Make dir if not exist and fix owner and group recursive
+  file:
+    path: "{{ documentroot }}"
+    state: directory
+    recurse: yes
+    owner: apache
+    group: apache
+
+- name: Copy own index into the specific docomentroot value in vars above
+  template:
+      src: "templates/index.html.j2"
+      dest: "{{ documentroot }}/index.html"
+
+- name: Definiera en vhost med template.
+  template:
+    src: "templates/min_vhost.conf.j2"
+    dest: "/etc/httpd/conf.d/min_vhost.conf"
+  notify:
+    - restart apache
+
+
+- name: Starta Apache vid boot.
+  service:
+     name: httpd
+     enabled: yes
+     state: started
+

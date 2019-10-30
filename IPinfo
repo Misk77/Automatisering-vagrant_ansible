@@ -1,0 +1,6 @@
+databas: Detta är IP adressen för databas.
+    databas: 172.28.128.21
+192.168.121.142
+ webb: Detta är IP adressen för webb.$
+    webb: 172.28.128.57
+192.168.121.167

@@ -1,0 +1,6 @@
+---
+servername: example.org
+documentroot: "/var/www/{{ servername }}"
+servernameip: "{{ ansible_eth1.ipv4.address }}"
+PORT: 80
+

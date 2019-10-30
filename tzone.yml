@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: Set timezone to UTC.
+      timezone:
+        name: UTC
